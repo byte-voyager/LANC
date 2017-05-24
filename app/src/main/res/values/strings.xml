@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">LANC</string>
+    <string name="prompt_empty_contact">没有其它设备≥▽≤</string>
+    <string name="ftp_des">用户名:lanc  密码:lanc</string>
+    <string name="dialog_ok">确定</string>
+    <string name="dialog_cancel">取消</string>
+    <string name="dialog_take">从相册选择</string>
+    <string name="not_empty">不能为空</string>
+    <string name="ftp_state_des_off">Ftp:没有开启</string>
+    <string name="ftp_state_des_on">Ftp:在运行</string>
+    <string name="toast_too_big_avatar">头像太大!</string>
+    <string name="toast_bind_tcp_faile">绑定TCP端口失败</string>
+    <string name="file_custom">从文件管理器选择</string>
+    <string name="key_download_dir">key_download_dir</string>
+    <string name="key_check_update">key_check_update</string>
+</resources>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+   <PreferenceCategory
+       android:title="简介"
+       >
+
+      <Preference
+          android:icon="@mipmap/ic_launcher"
+          android:summary="这是一个在局域网使用,简单便捷的文件传输和通信的开源软件"
+          android:selectable="true"
+          />
+   </PreferenceCategory>
+
+
+   <PreferenceCategory
+       android:title="设置"
+       >
+      <SwitchPreference
+          android:defaultValue="true"
+          android:key="@string/is_open_noti"
+          android:summaryOff="没有开启"
+          android:summaryOn="已经开启"
+          android:title="信息通知"
+          />
+
+      <SwitchPreference
+          android:defaultValue="true"
+          android:key="@string/is_open_bing"
+          android:summaryOff="从不更新"
+          android:summaryOn="每天更新"
+          android:title="从Bing更新背景"
+          />
+
+
+      <Preference
+          android:key="@string/key_download_dir"
+          android:title="文件传输路径"
+          android:summary="本机内部SD卡的Download(下载)目录"
+          >
+
+      </Preference>
+
+      <Preference
+          android:key="@string/key_check_update"
+          android:title="检查更新"
+          android:summary="得到更好的版本!"
+          >
+
+      </Preference>
+   </PreferenceCategory>
+
+
+   <PreferenceCategory android:title="关于">
+
+      <Preference
+          android:title="License"
+          android:summary="GNU General Public License v3.0"
+          ></Preference>
+
+      <Preference
+          android:summary="www.github.com/alonebo"
+          android:title="开源地址">
+
+         <intent
+             android:action="android.intent.action.VIEW"
+             android:data="http://www.github.com/alonebo" />
+
+      </Preference>
+
+
+   </PreferenceCategory>
+
+
+
+</PreferenceScreen>

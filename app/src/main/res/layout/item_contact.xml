@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:newsView = "http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="5dp"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackgroundBorderless"
+    android:id="@+id/cv_contact_online"
+    android:layout_height="80dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:gravity="left"
+        android:layout_height="match_parent">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_gravity="left"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_avatar_default"
+            android:layout_marginLeft="10dp"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:id="@+id/civ_online_contact"
+            />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:id="@+id/ll_name_and_ip"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/civ_online_contact"
+            android:gravity="center_vertical"
+
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+               android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_gravity="bottom"
+                    android:layout_alignRight="@+id/civ_online_contact"
+                    android:id="@+id/tv_online_contact_name"
+                    android:layout_width="wrap_content"
+                    android:textSize="25sp"
+                    android:textColor="#000"
+                    android:text="张三风"
+                    android:layout_height="wrap_content"
+                    />
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    android:layout_gravity="bottom"
+                    android:layout_alignRight="@+id/civ_online_contact"
+                    android:id="@+id/tv_online_contact_ip"
+                    android:layout_width="wrap_content"
+                    android:textSize="14sp"
+                    android:text="192.168.0.199"
+                    android:layout_height="wrap_content"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_last_chat_msg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="你好,在干吗呢?"
+                    android:maxLines="1"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="5dp"
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_height="match_parent">
+
+            <cc.alonebo.lanc.widget.NewsView
+                android:layout_gravity="center"
+                newsView:count="6"
+                android:id="@+id/nv_not_read_view"
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+
+            <TextView
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:id="@+id/tv_last_chat_time"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content"
+                android:text="10:08"
+                />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

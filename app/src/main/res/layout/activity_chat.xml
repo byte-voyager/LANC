@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@color/colorPrimary"
+    android:layout_height="match_parent">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_chat_activity"
+        android:fitsSystemWindows="false"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/colorPrimary"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:popupTheme="@style/MyOverFlowMenuTheme"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:elevation="4dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:maxLines="1"
+            android:id="@+id/tv_chat_name"
+            android:textSize="26sp"
+            android:layout_gravity="center"
+            android:text="zhangsan"
+            />
+
+    </android.support.v7.widget.Toolbar>
+
+            <android.support.v7.widget.RecyclerView
+                android:paddingTop="5dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:layout_below="@+id/toolbar_chat_activity"
+                android:layout_width="match_parent"
+                android:id="@+id/rv_chat"
+                android:paddingBottom="50dp"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical"
+                >
+            </android.support.v7.widget.RecyclerView>
+
+            <cc.alonebo.lanc.widget.MyLinearLayout
+
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:id="@+id/myll_send_frame"
+                android:paddingBottom="5dp"
+                android:layout_alignParentBottom="true"
+                android:layout_height="wrap_content">
+
+                <cc.alonebo.lanc.widget.MyEditText
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:id="@+id/ed_input_msg"
+                    android:textSize="20sp"
+                    android:layout_alignLeft="@+id/bt_send_msg"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:maxLength="200"
+                    android:paddingLeft="2dp"
+                    android:background="@drawable/edittext_bg"
+                    android:maxLines="3"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="37dp"
+                    android:layout_height="39dp"
+                    android:background="@drawable/selector_bg_send"
+                    android:id="@+id/bt_send_msg"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="5dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    />
+            </cc.alonebo.lanc.widget.MyLinearLayout>
+
+</RelativeLayout>
+

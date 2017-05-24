@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@drawable/bg_receive_activity"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:gravity="left"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:paddingTop="10dp"
+        android:paddingLeft="5dp"
+        android:paddingBottom="10dp"
+        android:textColor="#000"
+        android:text="文件传输请求:"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000"
+        />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="5dp"
+        android:paddingLeft="5dp"
+        android:paddingBottom="5dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:maxLines="1"
+            android:textColor="#c00"
+            android:paddingTop="3dp"
+            android:id="@+id/tv_receive_file_sender"
+            android:text="发送人:xxx"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#000"
+            android:maxLines="3"
+            android:id="@+id/tv_receive_file_msg"
+            android:paddingTop="3dp"
+            android:text="文件信息人:xxx"
+            />
+
+    </LinearLayout>
+
+
+    <View
+        android:paddingTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000"
+        />
+
+
+    <LinearLayout
+        android:paddingTop="5dp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textColor="#000"
+            android:layout_height="wrap_content"
+            android:id="@+id/bt_receive_file"
+            android:layout_margin="5dp"
+            android:background="@drawable/selector_bg_receive_button"
+            android:text="确定"
+            />
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textColor="#000"
+            android:layout_margin="5dp"
+            android:background="@drawable/selector_bg_receive_button"
+            android:layout_height="wrap_content"
+            android:id="@+id/bt_refuse_receive_file"
+            android:text="取消"
+            />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <item
+        android:id="@+id/menu_send_file"
+        android:title="发送文件"
+        android:icon="@drawable/selector_bg_send_file"
+        app:actionProviderClass="cc.alonebo.lanc.widget.MenuFileActionProvider"
+        app:showAsAction="ifRoom|collapseActionView"
+        />
+</menu>

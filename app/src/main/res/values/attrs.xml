@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <attr name="count" format="string" />  
+  
+    <declare-styleable name="NewsView">  
+        <attr name="count" />  
+    </declare-styleable>  
+    
+</resources>
