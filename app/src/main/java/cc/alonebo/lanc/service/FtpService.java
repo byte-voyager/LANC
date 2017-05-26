@@ -65,7 +65,7 @@ public class FtpService extends Service {
         builder.setWhen(Utils.getCurrentTime());
         builder.setLargeIcon(BitmapFactory.decodeResource(Utils.getContext().getResources(), R.drawable.svg_ftp_black));
         builder.setContentText(des);
-        builder.setContentIntent(pi);
+        //builder.setContentIntent(pi);
         return builder.build();
     }
 }

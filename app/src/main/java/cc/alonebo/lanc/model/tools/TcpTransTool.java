@@ -25,8 +25,6 @@ public class TcpTransTool {
     private ServerSocket mSs;
     private static TcpTransTool sTcpTransTool;
     private TcpMsgListener mListener;
-
-
     private ExecutorService sendExecutor  = Executors.newSingleThreadExecutor();
     private ExecutorService receiveExecutor = Executors.newSingleThreadExecutor();
     private String TAG = TcpTransTool.class.getName();

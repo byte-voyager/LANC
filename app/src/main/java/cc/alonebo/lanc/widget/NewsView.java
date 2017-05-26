@@ -48,9 +48,11 @@ public class NewsView extends View {
         mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
         count = ta.getString(index);
         if ("0".equals(count)) {
-            circleColor = Color.WHITE;
+//            circleColor = Color.WHITE;
+            setVisibility(GONE);
         } else {
-            circleColor = Color.BLACK;
+//            circleColor = Color.BLACK;
+            setVisibility(VISIBLE);
         }
         mPaint.getTextBounds(count, 0, count.length(), bounds);
     }
@@ -58,9 +60,11 @@ public class NewsView extends View {
     public void setCount(String count) {
         this.count = count;
         if ("0".equals(count)) {
-            circleColor = Color.WHITE;
+           // circleColor = Color.WHITE;
+            setVisibility(GONE);
         } else {
-            circleColor = Color.BLACK;
+            //circleColor = Color.BLACK;
+            setVisibility(VISIBLE);
         }
         invalidate();
 
@@ -78,7 +82,6 @@ public class NewsView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        LogUtils.e("tag", count);
         int cy = getMeasuredHeight() / 2;
         mPaint.setColor(circleColor);
         canvas.drawCircle(getMeasuredWidth()/2,getMeasuredHeight() / 2,cy, mPaint);

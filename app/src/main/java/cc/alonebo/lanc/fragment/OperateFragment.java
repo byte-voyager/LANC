@@ -1,5 +1,7 @@
 package cc.alonebo.lanc.fragment;
 
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -22,6 +24,7 @@ import com.bumptech.glide.Glide;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnLongClick;
 import cc.alonebo.lanc.Constants;
 import cc.alonebo.lanc.MyApplication;
 import cc.alonebo.lanc.PrefActivity;
@@ -146,6 +149,19 @@ public class OperateFragment extends BaseFragment implements IFragOperateView{
 
             tv_ftp_state_des.setText(R.string.ftp_state_des_off);
         }
+    }
+
+    @OnLongClick(R.id.tv_ftp_state_des)
+    public boolean longClickFtpDes(){
+        if (sc_ftp.isChecked()){
+            ClipboardManager cmb = (ClipboardManager) Utils.getContext() .getSystemService(Context.CLIPBOARD_SERVICE);
+            String content = "ftp://" + NetUtils.getLocalIpAddress() + ":" + Constants.PORT_FTP;
+
+            cmb.setText(content);
+            Utils.showToast(Utils.getContext(),"Success copy!");
+        }
+
+        return true;
     }
 
     @OnClick(R.id.ll_setting)

@@ -47,9 +47,6 @@ public class ParallaxLinearLayout extends LinearLayout {
         int height = dm.heightPixels;
         if (height>=1){
             MAX_OFFSET_Y = height/2;
-            LogUtils.e(TAG, "MAX_OFFSET_Y:"+MAX_OFFSET_Y);
-        }else {
-            LogUtils.e(TAG, "MAX_OFFSET_Y---Not:"+MAX_OFFSET_Y);
         }
     }
 
@@ -59,7 +56,6 @@ public class ParallaxLinearLayout extends LinearLayout {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-//        MAX_OFFSET_Y = h / 2;
         layoutParams = (ViewGroup.MarginLayoutParams) getLayoutParams();
         LogUtils.e(TAG, "MAX_OFFSET_Y:"+MAX_OFFSET_Y);
     }

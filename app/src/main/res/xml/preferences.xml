@@ -61,12 +61,12 @@
           ></Preference>
 
       <Preference
-          android:summary="www.github.com/alonebo"
+          android:summary="www.github.com/alonebo/LANC"
           android:title="开源地址">
 
          <intent
              android:action="android.intent.action.VIEW"
-             android:data="http://www.github.com/alonebo" />
+             android:data="http://www.github.com/alonebo/LANC" />
 
       </Preference>
 

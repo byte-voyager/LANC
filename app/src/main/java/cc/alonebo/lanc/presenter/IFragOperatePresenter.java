@@ -15,4 +15,5 @@ public interface IFragOperatePresenter {
     void setIp();
     void setParallaxBackground();
     void setBingWall();
+
 }
