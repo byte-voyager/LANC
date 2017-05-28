@@ -213,4 +213,6 @@ public class FragOperatePresenterImpl implements IFragOperatePresenter,LoadUriSu
     public void unRegist(){
         EventBus.getDefault().unregister(this);
     }
+
+
 }
