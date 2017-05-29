@@ -20,4 +20,6 @@ public interface IUdpTransMsgModel {
     void sendRequestReceiveFile(ArrayList<String> fileName,String receiveIp,ArrayList<Long> fileSize);
 
     void sendTransIngFileMsg(String receiverIP);
+
+    void sendCommandMsg(String mIp, String message);
 }

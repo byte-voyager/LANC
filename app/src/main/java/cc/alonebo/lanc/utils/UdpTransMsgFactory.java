@@ -77,4 +77,10 @@ public class UdpTransMsgFactory {
         transMsg.setAvatarTime(Utils.getMyAvatarTime());
         return transMsg;
     }
+
+    public static UdpTransMsg getCommandTransMsg(String receiverIp, String message) {
+        UdpTransMsg transMsg = getTransMsg(receiverIp, Constants.TRANS_TYPE_COMMAND);
+        transMsg.setMessage(message);
+        return transMsg;
+    }
 }

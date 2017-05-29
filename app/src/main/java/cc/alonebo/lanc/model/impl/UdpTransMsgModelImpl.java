@@ -63,4 +63,9 @@ public class UdpTransMsgModelImpl implements IUdpTransMsgModel{
     public void sendTransIngFileMsg(String receiverIP) {
         mUdpTransTool.sendMsg(UdpTransMsgFactory.getTransMsg(receiverIP, Constants.TRANS_TYPE_TRANSING_FILE));
     }
+
+    @Override
+    public void sendCommandMsg(String mIp, String message) {
+        mUdpTransTool.sendMsg(UdpTransMsgFactory.getCommandTransMsg(mIp,message));
+    }
 }
