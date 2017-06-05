@@ -104,6 +104,7 @@ public class ParallaxLinearLayout extends LinearLayout {
         animator.setInterpolator(new OvershootInterpolator(4));//弹性的插值器
         animator.setDuration(400);
         animator.start();
+
     }
 
     @Override

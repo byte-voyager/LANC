@@ -50,6 +50,7 @@
                     android:textSize="25sp"
                     android:textColor="#000"
                     android:text="张三风"
+                    android:maxEms="4"
                     android:layout_height="wrap_content"
                     />
                 <TextView

@@ -45,6 +45,7 @@
                 android:text="MX 4"
                 android:id="@+id/tv_device_name"
                 android:maxLines="1"
+                android:maxEms="5"
                 android:layout_gravity="center_vertical"
                 android:gravity="center"
                 android:textSize="23sp"
