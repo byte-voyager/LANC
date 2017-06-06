@@ -1,7 +1,6 @@
 package cc.alonebo.lanc.presenter.impl;
 
 import android.app.Activity;
-import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
@@ -77,6 +76,11 @@ public class ActChatPresenterImpl implements IActChatPresenter,ChoiceFileResultL
 
     @Override
     public void sendMessage(String message) {
+        if (message.startsWith(Constants.TRANS_PREFIX_CONTROL)) {
+            mUdpTransModel.sendCommandMsg(mIp,message);
+        }else {
+            mUdpTransModel.sendChatMessage(mIp,message);
+        }
         mActChatView.addMyChatMsg(message);
         ChatMessageBean chatBean = new ChatMessageBean();
         chatBean.setMessageType(Constants.TYPE_ONESELF);
@@ -85,14 +89,12 @@ public class ActChatPresenterImpl implements IActChatPresenter,ChoiceFileResultL
         chatBean.setMessageTime(Utils.getCurrentTime());
         mChatMessageModel.saveChatMessage(chatBean);
 
-        mUdpTransModel.sendChatMessage(mIp,message);
-
         EventBus.getDefault().post(new EventUpdateLastChat(EventUpdateLastChat.TYPE_UPDATE_LAST_CHAT_MSG_ONLYMSG)
                 .setDeviceIdent(mDeviceIdent)
                 .setMsg(message));//ContactPresenterImpl#
 
         mContactModel.updateLastChatMsg(mDeviceIdent,message,Utils.getCurrentTime(), ContactDao.MSG_TYPE_NORMAL,
-            false
+                false
         );
     }
 

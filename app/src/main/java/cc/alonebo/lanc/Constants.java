@@ -27,6 +27,7 @@ public class Constants {
     public static final int TRANS_TYPE_REQUEST_DETAIL_MSG = 22;
     public static final int TRANS_TYPE_UPDATE_AVATAR = 23;
     public static final int TRANS_TYPE_TRANSING_FILE = 24;
+    public static final int TRANS_TYPE_COMMAND = 25;
     public static final int TYPE_ONESELF = 4;
     public static final int TYPE_OTHER = 5;
 
@@ -57,6 +58,8 @@ public class Constants {
 
     public static final String NAME_DEFAULT_FTP_USER_NAME = "lanc";
     public static final String SP_DEVICE_TCP_PORT = "SP_DEVICE_TCP_PORT";
+    public static final java.lang.String TRANS_PREFIX_CONTROL = "remote:";
+
 
 
     public static  boolean IS_TRANSINT_FILE = false;

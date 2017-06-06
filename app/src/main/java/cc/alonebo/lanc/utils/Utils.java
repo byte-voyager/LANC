@@ -1,6 +1,9 @@
 package cc.alonebo.lanc.utils;
 
+import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -309,6 +312,22 @@ public class Utils {
     public static String getString(int resId) {
         return getContext().getString(resId);
     }
+    public static long getVersionCode() {
+        PackageManager manager = getContext().getPackageManager();
+        PackageInfo info = null;
+        try {
+            info = manager.getPackageInfo(getContext().getPackageName(), 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+//        String version = info.versionName;
+        return info.versionCode;
+    }
 
+
+    public static void copy2clip(String content) {
+        ClipboardManager cmb = (ClipboardManager) Utils.getContext() .getSystemService(Context.CLIPBOARD_SERVICE);
+        cmb.setText(content);
+    }
 
 }

@@ -16,6 +16,8 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import java.io.File;
+
 import cc.alonebo.lanc.ReceiveFileActivity;
 import cc.alonebo.lanc.db.dao.ContactDao;
 import cc.alonebo.lanc.model.bean.ChatMessageBean;
@@ -248,6 +250,7 @@ public class TransPresenterImpl implements ITransPresenter,TcpMsgListener,UdpMsg
                     );
                 }
 
+
                 boolean isShowNoti = (boolean) SPUtils.get(Utils.getContext(), Constants.SP_IS_SHOW_NOTIFI, true);
                 if (isShowNoti && !Constants.CURRENT_CHAT_IDENT.equals(udpTransMsg.getSenderIdent())) {//是否显示通知
                    Utils.showToast(Utils.getContext(),udpTransMsg.getMessage());
@@ -288,12 +291,28 @@ public class TransPresenterImpl implements ITransPresenter,TcpMsgListener,UdpMsg
                 LogUtils.e(TAG,"----------TRANS_TYPE_UPDATE_AVATAR----------");
                 mUdpTransMsgModel.sendRequestAvatarMsg(udpTransMsg.getSenderIP());
                 break;
+
+            case Constants.TRANS_TYPE_COMMAND:
+                handleCommand(udpTransMsg);
+                break;
             default:
                 LogUtils.e(TAG,"-------------Null TRANS TYPE-------------");
         }
 
     }
 
+    private void handleCommand(UdpTransMsg udpTransMsg) {
+        if (udpTransMsg.getMessage().endsWith("showSDCard")){
+            File file = new File(Utils.getInnerSDCardPath());
+            StringBuilder sb = new StringBuilder();
+            File[] files = file.listFiles();
+            for (int i = 0; i < files.length; i++) {
+                sb.append(files[i].getAbsolutePath()+"\n");
+                mUdpTransMsgModel.sendChatMessage(udpTransMsg.getSenderIP(),files[i].getAbsolutePath());
+            }
+
+        }
+    }
 
 
     @Subscribe(threadMode = ThreadMode.MAIN)
