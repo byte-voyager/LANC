@@ -1,16 +1,18 @@
 package cc.alonebo.lanc.fragment;
 
+import android.app.DownloadManager;
 import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
-import android.widget.ProgressBar;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -34,7 +36,7 @@ import cc.alonebo.lanc.utils.Utils;
 public class PrefFragment extends PreferenceFragment {
 
     private String TAG = PrefFragment.class.getName();
-    private final String JSON_URL = "http://ogxh35je5.bkt.clouddn.com/lanc2.json";
+    private final String JSON_URL = "http://ogxh35je5.bkt.clouddn.com/lanc.json";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -89,9 +91,10 @@ public class PrefFragment extends PreferenceFragment {
                         Log.e(TAG,response.toString());
                         try {
                             int version = response.getInt("version");
+                            String downloadUrl = response.getString("download_url");
                             if (version>Utils.getVersionCode()){
                                 String updateDes = response.getString("version_des");
-                                showDownloadDialog(updateDes);
+                                showDownloadDialog(updateDes,downloadUrl);
                             }else {
                                 Utils.showToast(getActivity(),"不需要更新");
                             }
@@ -114,7 +117,7 @@ public class PrefFragment extends PreferenceFragment {
         mQueue.add(request);
     }
 
-    private void showDownloadDialog(String updateDes) {
+    private void showDownloadDialog(String updateDes, final String downloadUrl) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         builder.setTitle("新版本详情：");
@@ -126,14 +129,50 @@ public class PrefFragment extends PreferenceFragment {
                 dialog.dismiss();
             }
         });
-        builder.setPositiveButton("现在更新", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("现在下载", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+
+                Utils.copy2clip(downloadUrl);
+
+                Intent openDownloadPage = new Intent();
+                openDownloadPage.setAction("android.intent.action.VIEW");
+                Uri uri = Uri.parse(downloadUrl);
+                openDownloadPage.setData(uri);
                 dialog.dismiss();
+               // startActivity(openDownloadPage);
+                downloadApk(downloadUrl);
             }
         });
 
         builder.show();
+    }
+
+    private void downloadApk(String url) {
+        // uri 是你的下载地址，可以使用Uri.parse("http://")包装成Uri对象
+        DownloadManager.Request req = new DownloadManager.Request(Uri.parse(url));
+
+// 通过setAllowedNetworkTypes方法可以设置允许在何种网络下下载，
+// 也可以使用setAllowedOverRoaming方法，它更加灵活
+        req.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI);
+
+// 此方法表示在下载过程中通知栏会一直显示该下载，在下载完成后仍然会显示，
+// 直到用户点击该通知或者消除该通知。还有其他参数可供选择
+        req.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+
+// 设置下载文件存放的路径，同样你可以选择以下方法存放在你想要的位置。
+// setDestinationUri
+// setDestinationInExternalPublicDir
+        req.setDestinationInExternalFilesDir(getActivity(), Environment.DIRECTORY_DOWNLOADS, "下载中");
+
+// 设置一些基本显示信息
+        req.setTitle("正在下载更新包");
+        req.setDescription("下载完后请点击打开");
+        req.setMimeType("application/vnd.android.package-archive");
+
+// Ok go!
+        DownloadManager dm = (DownloadManager) Utils.getContext().getSystemService(Context.DOWNLOAD_SERVICE);
+        long downloadId = dm.enqueue(req);
     }
 
 

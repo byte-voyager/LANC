@@ -1,5 +1,6 @@
 package cc.alonebo.lanc.utils;
 
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -321,6 +322,12 @@ public class Utils {
         }
 //        String version = info.versionName;
         return info.versionCode;
+    }
+
+
+    public static void copy2clip(String content) {
+        ClipboardManager cmb = (ClipboardManager) Utils.getContext() .getSystemService(Context.CLIPBOARD_SERVICE);
+        cmb.setText(content);
     }
 
 }
