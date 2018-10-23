@@ -7,7 +7,7 @@
 
 
 ## leg
-![](![图片标题](https://github.com/AloneBo/LANC/blob/master/lancdemo03.png))
+![](![图片标题](https://github.com/AloneBo/LANC/blob/master/lancdemo03.png)
 
 ## APP funaction
 * 传输文件(支持后台)
