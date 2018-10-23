@@ -6,8 +6,9 @@
 ![图片标题](https://github.com/AloneBo/LANC/blob/master/lancdemo02.jpg)
 
 
-## leg
-![](![图片标题](https://github.com/AloneBo/LANC/blob/master/lancdemo03.png)
+## Logic
+
+![](https://github.com/AloneBo/LANC/blob/master/lancdemo03.png)
 
 ## APP funaction
 * 传输文件(支持后台)
@@ -22,5 +23,6 @@
 * 下载文件默认到内部Download目录
 
 
-##License
+## License
+
 **GNU General Public License 3.0**
