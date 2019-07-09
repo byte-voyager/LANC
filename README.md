@@ -10,7 +10,7 @@
 
 ![](https://github.com/AloneBo/LANC/blob/master/lancdemo03.png)
 
-## APP funaction
+## Features
 * 传输文件(支持后台)
 * 传输信息(支持后台)
 * 开启FTP服务器(支持后台)
