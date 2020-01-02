@@ -5,8 +5,6 @@
 ![图片标题](https://github.com/AloneBo/LANC/blob/master/lancdemo02.jpg)
 
 
-![](https://github.com/AloneBo/LANC/blob/master/lancdemo03.png)
-
 ## Features
 * 传输文件(支持后台)
 * 传输信息(支持后台)
