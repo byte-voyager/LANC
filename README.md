@@ -1,12 +1,9 @@
 ## UI
-* 主界面
 ![图片标题](https://github.com/AloneBo/LANC/blob/master/lancdemo01.jpg)
 
-* 设置关于界面
+
 ![图片标题](https://github.com/AloneBo/LANC/blob/master/lancdemo02.jpg)
 
-
-## Logic
 
 ![](https://github.com/AloneBo/LANC/blob/master/lancdemo03.png)
 
@@ -21,7 +18,6 @@
 * 删除聊天
 * 从Bing得到每日壁纸(支持下载,显示到详情页面)
 * 下载文件默认到内部Download目录
-
 
 ## License
 
