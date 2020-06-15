@@ -4,10 +4,10 @@
     xmlns:newsView = "http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_margin="5dp"
-    app:cardCornerRadius="5dp"
-    app:cardElevation="5dp"
+
+
     android:clickable="true"
-    android:foreground="?android:attr/selectableItemBackgroundBorderless"
+
     android:id="@+id/cv_contact_online"
     android:layout_height="80dp">
 
